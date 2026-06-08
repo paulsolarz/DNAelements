@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mathly — Design Values</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  background:#080604;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  overflow:hidden;
+  font-family:'DM Sans',sans-serif;
+}
+
+.presentation{
+  position:relative;
+  width:1920px;
+  height:1080px;
+  transform-origin:top left;
+  flex-shrink:0;
+  overflow:hidden;
+}
+
+/* ── Individual slide ── */
+.slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity 0.65s ease;
+  pointer-events:none;
+}
+.slide.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* ── Background image ── */
+.bg{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+/* ── Bottom gradient ── */
+.grad-bottom{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(8,6,4,0.00) 18%,
+    rgba(8,6,4,0.18) 38%,
+    rgba(8,6,4,0.72) 60%,
+    rgba(8,6,4,0.94) 78%,
+    rgba(8,6,4,0.98) 100%
+  );
+}
+
+/* ── Left gradient ── */
+.grad-left{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to right,
+    rgba(8,6,4,0.58) 0%,
+    rgba(8,6,4,0.20) 30%,
+    transparent      52%
+  );
+}
+
+/* ── Vignette ── */
+.vignette{
+  position:absolute;
+  inset:0;
+  background:radial-gradient(
+    ellipse 115% 100% at 50% 50%,
+    transparent 42%,
+    rgba(4,3,2,0.35) 100%
+  );
+}
+
+/* ── Content block ── */
+.content{
+  position:absolute;
+  bottom:72px;
+  left:108px;
+  width:800px;
+}
+
+.accent-rule{
+  width:52px;
+  height:2px;
+  background:#c8811e;
+  margin-bottom:20px;
+}
+
+.element-tag{
+  font-family:'DM Sans',sans-serif;
+  font-weight:400;
+  font-size:13px;
+  letter-spacing:0.20em;
+  text-transform:uppercase;
+  color:#c8811e;
+  margin-bottom:16px;
+  line-height:1.5;
+}
+
+.title{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-style:italic;
+  font-size:98px;
+  line-height:0.96;
+  letter-spacing:-0.015em;
+  color:#f5ede0;
+  margin-bottom:28px;
+}
+
+.divider{
+  width:100%;
+  height:1px;
+  background:linear-gradient(to right,rgba(200,129,30,0.5),transparent);
+  margin-bottom:24px;
+}
+
+.narrative{
+  font-family:'DM Sans',sans-serif;
+  font-weight:300;
+  font-size:20px;
+  line-height:1.75;
+  color:rgba(222,213,200,0.82);
+  letter-spacing:0.01em;
+}
+
+/* ── Mathly wordmark ── */
+.wordmark{
+  position:absolute;
+  bottom:40px;
+  right:72px;
+  font-family:'DM Sans',sans-serif;
+  font-weight:500;
+  font-size:14px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:rgba(200,129,30,0.42);
+}
+
+/* ── Navigation bar ── */
+.nav-bar{
+  position:absolute;
+  bottom:38px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:20px;
+  background:rgba(8,6,4,0.55);
+  border:1px solid rgba(200,129,30,0.2);
+  border-radius:40px;
+  padding:10px 22px;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+
+.nav-btn{
+  background:none;
+  border:none;
+  color:rgba(245,237,224,0.75);
+  font-size:20px;
+  cursor:pointer;
+  padding:4px 8px;
+  transition:color 0.2s;
+  font-family:'DM Sans',sans-serif;
+  line-height:1;
+}
+.nav-btn:hover{color:#f5ede0}
+.nav-btn:disabled{color:rgba(245,237,224,0.2);cursor:default}
+
+.counter{
+  font-family:'DM Sans',sans-serif;
+  font-weight:400;
+  font-size:13px;
+  letter-spacing:0.14em;
+  color:rgba(200,129,30,0.8);
+  min-width:52px;
+  text-align:center;
+}
+
+/* ── Keyboard hint ── */
+.key-hint{
+  position:absolute;
+  top:36px;
+  right:72px;
+  font-family:'DM Sans',sans-serif;
+  font-size:11px;
+  letter-spacing:0.14em;
+  color:rgba(245,237,224,0.2);
+  text-transform:uppercase;
+}
+</style>
+</head>
+<body>
+
+<div class="presentation" id="pres">
+
+  <div class="slide active" id="slide-01">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_rer4x5rer4x5rer4.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 01&nbsp;&nbsp;&middot;&nbsp;&nbsp;The Foundational Concept, Not the Grade-Level Skill</div>
+      <div class="title">What Lies<br>Beneath</div>
+      <div class="divider"></div>
+      <div class="narrative">The game teaches the simpler underlying idea — the prerequisite that makes the harder skill make sense. A 7th-grade game about proportional relationships might actually be teaching “what a ratio means physically.” This separation is a deliberate choice every time.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-02">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_yfui6hyfui6hyfui.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 02&nbsp;&nbsp;&middot;&nbsp;&nbsp;The Mechanic IS the Aha Moment</div>
+      <div class="title">Where the Light<br>Comes From</div>
+      <div class="divider"></div>
+      <div class="narrative">Not “test whether students got it” — recreate the experience of getting it. The game’s visual world and core interaction should feel like the teacher’s best classroom moment, made physical. If the aha moment was folding paper into eighths, the game puts that experience in the student’s hands.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-03">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_2sh45j2sh45j2sh4.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 03&nbsp;&nbsp;&middot;&nbsp;&nbsp;Wrong Answers Are Designed, Not Default</div>
+      <div class="title">Every Decoy,<br>Deliberate</div>
+      <div class="divider"></div>
+      <div class="narrative">Misconceptions are researched and named before a line of code is written. Wrong-answer choices mirror the specific faulty mental model students arrive with. The game confronts the error pattern directly — it never routes around it.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-04">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_pmqbhrpmqbhrpmqb.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 04&nbsp;&nbsp;&middot;&nbsp;&nbsp;Failure Is an Instructional Sequence</div>
+      <div class="title">Guided,<br>Not Lost</div>
+      <div class="divider"></div>
+      <div class="narrative">Three progressively direct hints, each visual, each using different numbers, each building on the last. Getting it wrong isn’t a verdict — it’s the beginning of a teaching moment. The Unstuck Playlist catches what the game can’t.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-05">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_oazghloazghloazg.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 05&nbsp;&nbsp;&middot;&nbsp;&nbsp;One Change Per Level</div>
+      <div class="title">One Turn<br>at a Time</div>
+      <div class="divider"></div>
+      <div class="narrative">Each level makes exactly one change. Scaffolds are removed most-supportive-first. Complexity increases one step. Students never lose two supports at once — they always know what changed.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-06">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_s5ffkws5ffkws5ff.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 06&nbsp;&nbsp;&middot;&nbsp;&nbsp;Visual Does the Heavy Lifting</div>
+      <div class="title">The Screen<br>Speaks First</div>
+      <div class="divider"></div>
+      <div class="narrative">Every instruction, hint, and piece of feedback is shown, not told. Text is capped at 1st-grade reading level and plays a supporting role. A student who can’t read the words should still understand what to do by watching the screen.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-07">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_56k90w56k90w56k9.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 07&nbsp;&nbsp;&middot;&nbsp;&nbsp;Designed for Marcus</div>
+      <div class="title">Built for<br>This Kid</div>
+      <div class="divider"></div>
+      <div class="narrative">Every barrier that isn’t the math itself is removed: no timer, no drag-and-drop, no reading-heavy UI, optimized for the Chromebook on his desk. Marcus isn’t an abstract 7th grader — he’s a specific student, and the game knows it.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-08">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_15d9ua15d9ua15d9.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 08&nbsp;&nbsp;&middot;&nbsp;&nbsp;It Knows Its Place in a Larger System</div>
+      <div class="title">Part of Something<br>Larger</div>
+      <div class="divider"></div>
+      <div class="narrative">Games fire completion handshakes, trigger the Unstuck Playlist, and hand off gracefully. They don’t end on a fade-out — they end on a signal that Mathly’s platform catches and responds to.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-09">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_t0qfitt0qfitt0qf.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 09&nbsp;&nbsp;&middot;&nbsp;&nbsp;It’s a First Encounter, Not a Review</div>
+      <div class="title">As If for<br>the First Time</div>
+      <div class="divider"></div>
+      <div class="narrative">Every skill in Mathly is treated as a beginner skill. The game is designed for curiosity and discovery, not consolidation of prior knowledge. It never assumes the student has seen this before — even if the curriculum has technically covered it.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-10">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_y8wayky8wayky8wa.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 10&nbsp;&nbsp;&middot;&nbsp;&nbsp;The Game Has a Definitive End</div>
+      <div class="title">The Threshold<br>Is Earned</div>
+      <div class="divider"></div>
+      <div class="narrative">15–20 problems, roughly 3 per level. The game ends automatically and fires a handshake. The student doesn’t get to decide they’re done — the game does. This is not an endless practice loop. It’s a designed experience with a beginning, middle, and end.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-11">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_gvoj9sgvoj9sgvoj.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 11&nbsp;&nbsp;&middot;&nbsp;&nbsp;The Mechanic Is Derived from the Concept</div>
+      <div class="title">Made for<br>Each Other</div>
+      <div class="divider"></div>
+      <div class="narrative">Most ed-tech games bolt curriculum onto an existing format — match, drag, quiz. In Mathly, the mechanic is generated from the aha moment. It exists because of what needs to be understood, not because it’s a proven engagement pattern. You couldn’t swap it into a different skill.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-12">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_wakg1gwakg1gwakg.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 12&nbsp;&nbsp;&middot;&nbsp;&nbsp;Game Length Is Derived from the Pedagogy</div>
+      <div class="title">Structure<br>Follows Learning</div>
+      <div class="divider"></div>
+      <div class="narrative">Total levels = complexity levels + number of scaffolds removed. The game’s structure is calculated, not chosen. How long it is follows directly from how much the student needs to learn and how much support they need to lose.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-13">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_qw3xfqqw3xfqqw3x.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 13&nbsp;&nbsp;&middot;&nbsp;&nbsp;Hints Preserve the Challenge</div>
+      <div class="title">Just Enough<br>Light</div>
+      <div class="divider"></div>
+      <div class="narrative">Every hint uses different but similar numbers — never the same as the live problem. The hint teaches the concept without handing over the answer. Help is calibrated to close the gap, not eliminate it.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-14">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_rnvp48rnvp48rnvp.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 14&nbsp;&nbsp;&middot;&nbsp;&nbsp;Answer Choice Difficulty Scales</div>
+      <div class="title">Judgment,<br>Not Guesswork</div>
+      <div class="divider"></div>
+      <div class="narrative">3 choices at the floor, 4 at mid, 4–5 at the ceiling. Wrong choices always mirror misconceptions at every level. The choice architecture is designed, not arbitrary — it evolves in parallel with the intellectual demands of the level.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-15">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_8lqngc8lqngc8lqn.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 15&nbsp;&nbsp;&middot;&nbsp;&nbsp;Pedagogy Owns the Design; Code Is Downstream</div>
+      <div class="title">Vision<br>Comes First</div>
+      <div class="divider"></div>
+      <div class="narrative">The prompt tells Lovable what to build without specifying how. The teacher owns the learning design. Lovable owns the implementation. These are held apart intentionally — the vision leads, the execution follows.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-16">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_n6bnirn6bnirn6bn.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 16&nbsp;&nbsp;&middot;&nbsp;&nbsp;The Emotional History of the Student Is a Design Input</div>
+      <div class="title">History in<br>the Hands</div>
+      <div class="divider"></div>
+      <div class="narrative">Marcus isn’t an archetype — he’s a specific student with a specific history. The emotional weight of having been made to feel like a failure in math class isn’t peripheral to the design. It’s the primary lens through which every decision is made.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+  <div class="slide" id="slide-17">
+    <div class="bg" style="background-image:url('Gemini_Generated_Image_muodfzmuodfzmuod.png')"></div>
+    <div class="grad-bottom"></div>
+    <div class="grad-left"></div>
+    <div class="vignette"></div>
+    <div class="content">
+      <div class="accent-rule"></div>
+      <div class="element-tag">Element 17&nbsp;&nbsp;&middot;&nbsp;&nbsp;A Precise Pedagogical Artifact</div>
+      <div class="title">Nothing<br>by Accident</div>
+      <div class="divider"></div>
+      <div class="narrative">A Mathly game is a precise pedagogical artifact, not a content delivery vehicle. Every element — the mechanic, the progression, the hints, the wrong answers, the constraints, the length — is an expression of a specific theory about how this specific student learns this specific concept.</div>
+    </div>
+    <div class="wordmark">Mathly</div>
+  </div>
+
+  <div class="nav-bar">
+    <button class="nav-btn" id="prev-btn" onclick="go(-1)">&#8592;</button>
+    <span class="counter" id="counter">1 / 17</span>
+    <button class="nav-btn" id="next-btn" onclick="go(1)">&#8594;</button>
+  </div>
+
+  <div class="key-hint">&#8592; &#8594; to navigate</div>
+
+</div>
+
+<script>
+const TOTAL = 17;
+let cur = 0;
+
+function go(dir) {
+  const slides = document.querySelectorAll('.slide');
+  slides[cur].classList.remove('active');
+  cur = Math.max(0, Math.min(TOTAL - 1, cur + dir));
+  slides[cur].classList.add('active');
+  document.getElementById('counter').textContent = (cur + 1) + ' / ' + TOTAL;
+  document.getElementById('prev-btn').disabled = cur === 0;
+  document.getElementById('next-btn').disabled = cur === TOTAL - 1;
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') go(1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   go(-1);
+});
+
+// Scale to viewport
+function scale() {
+  const p = document.getElementById('pres');
+  const sx = window.innerWidth  / 1920;
+  const sy = window.innerHeight / 1080;
+  const s  = Math.min(sx, sy);
+  p.style.transform  = 'scale(' + s + ')';
+  p.style.marginLeft = ((window.innerWidth  - 1920 * s) / 2) + 'px';
+  p.style.marginTop  = ((window.innerHeight - 1080 * s) / 2) + 'px';
+}
+scale();
+window.addEventListener('resize', scale);
+
+// Init button states
+document.getElementById('prev-btn').disabled = true;
+</script>
+</body>
+</html>
